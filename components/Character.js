@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 export default function Character(props) {
-  console.log(props);
-
   return (
     <>
       {/* <div>
@@ -11,13 +9,11 @@ export default function Character(props) {
       </div> */}
       <Li>
         <Card>
-          <CardImage></CardImage>
+          <CardImage src={props.characterData.image}></CardImage>
           <CardContent>
             <CardTitle>{props.characterData.name}</CardTitle>
             <CardText>
-              This is the shorthand for flex-grow, flex-shrink and flex-basis
-              combined. The second and third parameters (flex-shrink and
-              flex-basis) are optional. Default is 0 1 auto.
+              <HorizontalRule />
             </CardText>
             <CardButton>Button</CardButton>
           </CardContent>
@@ -29,12 +25,17 @@ export default function Character(props) {
 
 const Li = styled.li`
   display: flex;
+  flex-flow: column;
   padding: 1rem;
+  width: 1vw;
   @media (min-width: 40rem) {
     width: 50%;
   }
   @media (min-width: 56rem) {
-    width: 33.3333%;
+    width: fit-content;
+  }
+  @media (max-width: 700px) {
+    width: 90vw;
   }
 `;
 const Card = styled.div`
@@ -45,18 +46,21 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  &:hover {
-    .card__image {
-      filter: contrast(100%);
-    }
+  &:hover > .card__image {
+    filter: contrast(100%);
+  }
+  @media (max-width: 700px) {
+    width: 70vw;
   }
 `;
-const CardImage = styled.div`
+const CardImage = styled.img`
+  height: 50vh;
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  /* background-size: contain; */
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
+  object-fit: cover;
   filter: contrast(70%);
   //filter: saturate(180%);
   overflow: hidden;
@@ -101,6 +105,12 @@ const CardButton = styled.button`
   border-radius: 1rem;
   color: #696969;
   padding: 0.5rem;
+`;
+
+const HorizontalRule = styled.hr`
+  height: 1px;
+  background-color: #666666;
+  border: none;
 `;
 
 /*

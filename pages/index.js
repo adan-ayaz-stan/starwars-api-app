@@ -10,6 +10,8 @@ export default function Home({ data }) {
     setMenuItems(menuItems + 12);
   };
 
+  console.log(data);
+
   return (
     <>
       <Head>
@@ -18,22 +20,20 @@ export default function Home({ data }) {
       {/* <MyHeading>Star Wars</MyHeading> */}
       <HomeScreenContainer>
         <StarfieldLeft />
-        <CharactersContainer>
-          <ItemsListing>
-            {data
-              .filter((element) => element.id !== 28 && element.id !== 77)
-              .map(
-                (element, index) =>
-                  index < menuItems && (
-                    <Character
-                      characterData={element}
-                      characterIndexing={index + 1}
-                      key={element.id}
-                    />
-                  )
-              )}
-          </ItemsListing>
-        </CharactersContainer>
+        <ItemsListing>
+          {data
+            .filter((element) => element.id !== 28 && element.id !== 77)
+            .map(
+              (element, index) =>
+                index < menuItems && (
+                  <Character
+                    characterData={element}
+                    characterIndexing={index + 1}
+                    key={element.id}
+                  />
+                )
+            )}
+        </ItemsListing>
         {menuItems < data.length ? (
           <Button onClick={handlerShowMore}>
             <span>Show More</span>
@@ -51,13 +51,6 @@ export default function Home({ data }) {
   );
 }
 
-const MyHeading = styled.h1`
-  color: blue;
-  font-size: 40px;
-  font-family: Impact;
-  font-weight: 100;
-`;
-
 const HomeScreenContainer = styled.div`
   font-family: "DINNextW01-Regular", -apple-system, BlinkMacSystemFont, Segoe UI,
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
@@ -70,7 +63,10 @@ const Starfield = styled.div`
   position: fixed;
   background-repeat: repeat-y;
   top: 0;
-  width: 200px;
+  width: 150px; // Temporary Width -- Original Width is 200px
+  @media (max-width: 700px) {
+    width: 7%;
+  }
 `;
 
 const StarfieldLeft = styled(Starfield)`
@@ -87,30 +83,25 @@ const StarfieldRight = styled(Starfield)`
   background-size: 100% auto;
   background-image: url("https://static-mh.content.disney.io/starwars/assets/background/bg_starsR-655c85e404d4.jpg");
 `;
-const CharactersContainer = styled.div`
-  display: flex;
-  margin-top: 200px;
-  margin: 0 190px;
-  padding: 30px;
-  color: white;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  background-color: #151515;
-`;
+const CharactersContainer = styled.div``;
 
 const ItemsListing = styled.ul`
+  margin-top: 200px;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  padding: 30px;
+  color: white;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-around;
   list-style: none;
-  margin: 0;
   padding: 0;
+  background-color: #454545;
 `;
 
 const Button = styled.button`
   position: relative;
-  left: -1.2vw;
   margin: 2vw auto;
   padding: 19px 36px;
   display: block;
