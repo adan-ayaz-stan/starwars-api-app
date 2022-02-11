@@ -15,7 +15,7 @@ export default function Home({ data }) {
       <Head>
         <title>Home Page</title>
       </Head>
-      <MyHeading>Star Wars</MyHeading>
+      {/* <MyHeading>Star Wars</MyHeading> */}
       <HomeScreenContainer>
         <StarfieldLeft />
         <CharactersContainer>
@@ -110,6 +110,7 @@ const ItemsListing = styled.ul`
 
 const Button = styled.button`
   position: relative;
+  left: -1.2vw;
   margin: 2vw auto;
   padding: 19px 36px;
   display: block;
@@ -118,6 +119,7 @@ const Button = styled.button`
   overflow: hidden;
   border-radius: 4px;
   border: none;
+  box-shadow: 0 0 5px grey;
 
   span {
     color: #fff;
