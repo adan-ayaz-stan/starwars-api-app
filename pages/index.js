@@ -90,7 +90,7 @@ const StarfieldRight = styled(Starfield)`
 const CharactersContainer = styled.div`
   display: flex;
   margin-top: 200px;
-  margin: 0 170px;
+  margin: 0 190px;
   padding: 30px;
   color: white;
   justify-content: center;
@@ -101,6 +101,7 @@ const CharactersContainer = styled.div`
 
 const ItemsListing = styled.ul`
   display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
