@@ -19,18 +19,20 @@ export default function Home({ data }) {
       <HomeScreenContainer>
         <StarfieldLeft />
         <CharactersContainer>
-          {data
-            .filter((element) => element.id !== 28 && element.id !== 77)
-            .map(
-              (element, index) =>
-                index < menuItems && (
-                  <Character
-                    characterData={element}
-                    characterIndexing={index + 1}
-                    key={element.id}
-                  />
-                )
-            )}
+          <ItemsListing>
+            {data
+              .filter((element) => element.id !== 28 && element.id !== 77)
+              .map(
+                (element, index) =>
+                  index < menuItems && (
+                    <Character
+                      characterData={element}
+                      characterIndexing={index + 1}
+                      key={element.id}
+                    />
+                  )
+              )}
+          </ItemsListing>
         </CharactersContainer>
         {menuItems < data.length ? (
           <Button onClick={handlerShowMore}>
@@ -38,7 +40,10 @@ export default function Home({ data }) {
             <div className="liquid"></div>
           </Button>
         ) : (
-          <p>End of page!</p>
+          <Button>
+            <span>End of the Page</span>
+            <div className="liquid"></div>
+          </Button>
         )}
         <StarfieldRight />
       </HomeScreenContainer>
@@ -85,7 +90,7 @@ const StarfieldRight = styled(Starfield)`
 const CharactersContainer = styled.div`
   display: flex;
   margin-top: 200px;
-  margin: 0 200px;
+  margin: 0 170px;
   padding: 30px;
   color: white;
   justify-content: center;
@@ -93,6 +98,15 @@ const CharactersContainer = styled.div`
   flex-wrap: wrap;
   background-color: #151515;
 `;
+
+const ItemsListing = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+`;
+
 const Button = styled.button`
   position: relative;
   margin: 2vw auto;
