@@ -1,12 +1,16 @@
 import styled from "styled-components";
+import Navbar from "./Navbar";
 
 function Header() {
   return (
-    <HeaderContainer>
-      <HeaderLeft>Left Header</HeaderLeft>
-      <HeaderCenter>Center Header</HeaderCenter>
-      <HeaderRight>Right Header</HeaderRight>
-    </HeaderContainer>
+    <>
+      <HeaderContainer>
+        <HeaderLeft>Left Header</HeaderLeft>
+        <HeaderCenter>Center Header</HeaderCenter>
+        <HeaderRight>Right Header</HeaderRight>
+      </HeaderContainer>
+      <Navbar></Navbar>
+    </>
   );
 }
 
