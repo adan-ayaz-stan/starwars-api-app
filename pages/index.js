@@ -2,6 +2,7 @@ import Head from "next/head";
 import styled from "styled-components";
 import { useState } from "react";
 import Character from "../components/Character";
+import Navbar from "../components/Navbar";
 
 export default function Home({ data }) {
   const [menuItems, setMenuItems] = useState(12);
@@ -18,6 +19,7 @@ export default function Home({ data }) {
         <title>Home Page</title>
       </Head>
       {/* <MyHeading>Star Wars</MyHeading> */}
+      <Navbar></Navbar>
       <HomeScreenContainer>
         <StarfieldLeft />
         <ItemsListing>

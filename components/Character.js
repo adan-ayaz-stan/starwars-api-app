@@ -28,6 +28,10 @@ const Li = styled.li`
   flex-flow: column;
   padding: 1rem;
   width: 1vw;
+  transition: ease 0.4s;
+  &:hover {
+    transform: scale(1.05);
+  }
   @media (min-width: 40rem) {
     width: 50%;
   }
