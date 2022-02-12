@@ -1,0 +1,9 @@
+.customFont {
+  font-family: "Din Next";
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Din Next";
+  src: url("./DIN Next LT W01 Bold/font-fort.ttf");
+}
