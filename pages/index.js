@@ -19,6 +19,7 @@ export default function Home({ data }) {
       </Head>
       {/* <MyHeading>Star Wars</MyHeading> */}
       <Header />
+      <Navbar></Navbar>
       <HomeScreenContainer>
         <StarfieldLeft />
         <ItemsListing>

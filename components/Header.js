@@ -1,16 +1,12 @@
 import styled from "styled-components";
-import Navbar from "./Navbar";
 
 function Header() {
   return (
-    <>
-      <HeaderContainer>
-        <HeaderLeft>Left Header</HeaderLeft>
-        <HeaderCenter>Center Header</HeaderCenter>
-        <HeaderRight>Right Header</HeaderRight>
-      </HeaderContainer>
-      <Navbar></Navbar>
-    </>
+    <HeaderContainer>
+      <HeaderLeft>Left Header</HeaderLeft>
+      <HeaderCenter>Center Header</HeaderCenter>
+      <HeaderRight>Right Header</HeaderRight>
+    </HeaderContainer>
   );
 }
 
@@ -20,12 +16,15 @@ const HeaderContainer = styled.div`
   display: flex;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
+  height: 18%;
+  z-index: 10;
 `;
 const HeaderChilds = styled.div`
   display: flex;
-  width: 100%;
+  color: white;
+  flex-grow: 1;
 `;
-const HeaderLeft = styled(Header)``;
-const HeaderCenter = styled(Header)``;
-const HeaderRight = styled(Header)``;
+const HeaderLeft = styled(HeaderChilds)``;
+const HeaderCenter = styled(HeaderChilds)``;
+const HeaderRight = styled(HeaderChilds)``;
