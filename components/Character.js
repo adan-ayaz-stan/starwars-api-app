@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 
@@ -7,18 +8,20 @@ export default function Character(props) {
       {/* <div>
         {props.characterIndexing} :{props.characterData.name}
       </div> */}
-      <Li>
-        <Card>
-          <CardImage src={props.characterData.image}></CardImage>
-          <CardContent>
-            <CardTitle>{props.characterData.name}</CardTitle>
-            <CardText>
-              <HorizontalRule />
-            </CardText>
-            <CardButton>Button</CardButton>
-          </CardContent>
-        </Card>
-      </Li>
+      <Link href={`/id/${props.characterData.id}.json`}>
+        <Li>
+          <Card>
+            <CardImage src={props.characterData.image}></CardImage>
+            <CardContent>
+              <CardTitle>{props.characterData.name}</CardTitle>
+              <CardText>
+                <HorizontalRule />
+              </CardText>
+              <CardButton>Button</CardButton>
+            </CardContent>
+          </Card>
+        </Li>
+      </Link>
     </>
   );
 }
